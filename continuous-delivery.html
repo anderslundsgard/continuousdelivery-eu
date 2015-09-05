@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+	<meta charset="utf-8">
+	<title>Continuous Delivery of software</title>
+	<meta name="description" content="Good source for getting an understanding of Continuous Delivery of software. Best practices and examples of companies that do CD.">
+	<meta name="keywords" content="continuous, delivery, devops, agile, kanban">
+	<meta name="author" content="Anders Lundsg&aring;rd">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="css/stickfooter.css">
+	<link rel="stylesheet" href="css/cd-custom.css">
+	<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>	
+ </head>
+ <body>
+         
+ <div class="container">
+ 
+	<div class="fb-like" data-href="http://www.continuousdelivery.eu" data-layout="box_count" data-action="like" data-show-faces="true" data-share="true"></div>
+
+	<nav role="navigation" class="navbar navbar-default">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+            </button>
+            <a href="continuous-delivery.html" class="navbar-brand">CD</a>
+        </div>
+        <!-- Collection of nav links and other content for toggling -->
+        <div id="navbarCollapse" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="what-is-continuous-delivery.html">What is CD?</a></li>
+                <li><a href="how-to-do-continuous-delivery.html">How to do CD?</a></li>
+                <li><a href="who-do-continuous-delivery.html">Who does CD?</a></li>
+				<li><a href="about-continuous-delivery.html">About</a></li>
+            </ul>
+<!--             <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Login</a></li>
+            </ul> -->
+        </div>
+    </nav>
+
+	<!--<div class="alert alert-danger bs-alert-old-docs">
+      <strong>Heads up!</strong> This site is under construction! Will be ready by end of March 2014.
+    </div>-->
+         
+	<div class="jumbotron" style="padding: 10px">
+		<div class="row">
+			<div class="col-md-3">
+				<div class="row text-center">
+					<img src="images/cd-eu-logo3.png" alt="CD-Logo" class="img-responsive" />
+				</div>
+			</div>
+			<div class="col-md-9">
+				<h1>Continuous Delivery</h1>
+				<p class="text-center"><em>The starting point on your journey to the Continuous Delivery (CD) of software. Introduction and 
+				references to those awesome companies that do and share their experiences in CD.</em> <br />
+				</p>
+			</div>			
+		</div><!-- .row -->
+		<!--<h1>Continuous Delivery</h1>-->
+	</div><!-- .jumbotron -->
+    
+	<div>
+	<a href="https://twitter.com/anderslundsgard" class="twitter-follow-button" data-show-count="false" data-size="large" height="53">Follow @anderslundsgard</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+	<span style="padding: 10px">
+	<iframe src="http://www.facebook.com/plugins/like.php?href=http%3A%2F%2Fwww.continuousdelivery.eu&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=21&amp;appId=432011063527039" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;" allowTransparency="true" ></iframe>
+	</span>
+	</div>
+		
+	<div class="row">
+		<div class="col-md-4">
+			<h2>What is CD?</h2>
+			<p>Here you learn what Continuous Delivery is.</p>			
+			<p><a href="what-is-continuous-delivery.html" class="btn btn-primary btn-default">Tell me &raquo;</a></p>
+		</div><!-- .col-md-4 -->
+
+		<div class="col-md-4">
+			<h2>How to do CD?</h2>
+			<p>Here you get a deeper understanding of the best practices for the Continuous Delivery of software.</p>
+			<p><a href="how-to-do-continuous-delivery.html" class="btn btn-primary btn-default">Teach me &raquo;</a></p>
+		</div><!-- .col-md-4 -->
+
+		<div class="col-md-4">
+			<h2>Who does CD?</h2>
+			<p>Here you get references to many of the awesome companies that do the Continuous Delivery of software.</p>
+			<p><a href="who-do-continuous-delivery.html" class="btn btn-primary btn-default">Get inspired! &raquo;</a></p>
+		</div><!-- .col-md-4 --> 
+	</div><!-- .row -->
+ 
+	<hr />
+	
+	<!--<div class="row">
+		<div class="col-md-12">
+			<img src="images/CD-Overview.png" class="img-responsive" alt="Innovation and Continuous Delivery of software">
+		</div>
+	</div>-->
+	
+	<div class="row">
+		<div class="col-md-2">
+			<!--<strong>1.</strong> In projects doing CD the <strong>engineer</strong> submits code and tests into VCS. The code has been tested locally and also
+			reviewed by a co-engineer. <u>Note</u> the submitter is not called <em>a developer</em> because it could just as well be a person 
+			with special skills in testing or management.-->
+		</div>
+		<div class="col-md-8">
+			<img src="images/PD-process.png" class="img-responsive" alt="Innovation and Continuous Delivery of software">
+			<!--<strong>2.</strong> The Continuous Integration (CI) server triggers a series of automated builds, tests and deploys. This process 
+			is often referred to as the <strong>Deployment Pipeline</strong>. Automation is the key. No manual fingers do anything...
+			all the way to the production deploy. This automation is cheap so it will constantly be executed for all of the related changes 
+			being made into the VCS.-->
+		</div>
+		<div class="col-md-2">
+			<!--<strong>3.</strong> The engineer loves what she is doing. She wants her users to be happy. So a very crucial part of her work is monitoring the 
+			production servers. If a daily deploy seems to change any of the normal metrics like page loads, network traffic or cpu-usage, the engineer 
+		will act on that.-->
+		</div>
+	</div>
+		
+	<hr />
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="alert alert-info">  				
+				<strong>Are You doing CD?</strong> Share your own experience! There is always room for a link under 
+				<a href="who-do-continuous-delivery.html">Who does CD?</a>.
+			</div>
+		</div><!-- .col-md-12 --> 
+	</div><!-- .row -->
+	
+	<div id="footer">
+		<div class="container">
+			<p class="muted credit">
+				<address>
+					<strong>Anders Lundsg&aring;rd</strong>, <a href="mailto:contact@continuousdelivery.eu">contact@continuousdelivery.eu</a>
+				</address>
+			</p>
+		</div>
+	</div><!-- .footer -->
+
+ </div><!-- .container -->
+ 
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-35186448-2', { 'siteSpeedSampleRate': 100 });
+  ga('send', 'pageview');
+
+</script> 		 
+     
+</body>
+</html>

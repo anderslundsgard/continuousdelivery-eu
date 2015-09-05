@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+	<meta charset="utf-8">
+	<title>Continuous Delivery of software - How to do CD?</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/bootstrap-theme.min.css">
+	<link rel="stylesheet" href="css/vimeo.css">
+	<link rel="stylesheet" href="css/stickfooter.css">
+	<link rel="stylesheet" href="css/cd-custom.css">
+	<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+ </head>
+ <body>
+         
+ <div class="container">
+ 
+ 	<nav role="navigation" class="navbar navbar-default">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+            </button>
+            <a href="continuous-delivery.html" class="navbar-brand">CD</a>
+        </div>
+        <!-- Collection of nav links and other content for toggling -->
+        <div id="navbarCollapse" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="what-is-continuous-delivery.html">What is CD?</a></li>
+                <li><a href="how-to-do-continuous-delivery.html">How to do CD?</a></li>
+                <li><a href="who-do-continuous-delivery.html">Who does CD?</a></li>
+				<li><a href="about-continuous-delivery.html">About</a></li>
+            </ul>
+<!--             <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Login</a></li>
+            </ul> -->
+        </div>
+    </nav>
+         
+	<h2>How to do CD?</h2>
+	
+	<p>This section is by far not a complete recipe on how to achieve CD. But it still lists the main topics 
+	with brief descriptions. Also it provides references for further reading. There are two main areas to focus 
+	on in order to achieve CD.
+	<ul>
+		<li><strong>Cultural changes</strong></li>
+		<li><strong>Technical patterns</strong></li>
+	</ul>
+	</p>
+	
+	<hr />
+	
+	<h2>Cultural changes</h2>
+	<div class="row">
+		<div class="col-md-7">
+			<p>The idea with CD is to create as short a feedback loop as possible. From the idea to the hands of the users. 
+			Feedback will then trigger new ideas. Two of the major problems with bad performance in development are: 
+			<ul>
+				<li>The whispering game between human beings</li>
+				<li>Blame games when something went wrong</li>
+			</ul>
+			<p>Do empower the ones that build the product. The engineers. They take responsibility from writing the code to making 
+			it work in production. So what about for example the operations personnel? They are still extremely necessary. But instead 
+			of <em>having the application up and running</em> they should provide the engineers with tools and expertise in infrastructure 
+			questions. Engineers ask for help when they need it. Operations is just one type of resource out of many, such as the
+			managers, QAs, architects, etc...
+			</p>
+			<p>It is important that everyone independent of their profession have a clear view of what is happening. Metrics should be visualized for everyone.
+			Metrics include:
+			<ul>
+				<li><strong>Code</strong> metrics. Code coverage, code complexity, technical dept, etc.</li>
+				<li><strong>Production</strong> metrics. CPU load, page views, active users, http errors, etc.</li>
+				<li><strong>Business</strong> metrics. Is the company making money?</li>
+			</ul>
+			</p>
+		</div>
+		<div class="col-md-5">
+			<p>CD makes <strong>motivated employees</strong>. To get a fast response of what you are doing is amazingly effective. 
+			Also, mastering your own time has been proven to have a very big impact on how to keep us motivated.<br /><br />
+			<div class="video-container">
+				<iframe width="450" height="280" src="http://www.youtube.com/embed/u6XAPnuFjJc" frameborder="0" allowfullscreen></iframe>
+			</div>
+			</p>
+		</div>
+	</div>
+	
+	<h3>DevOps</h3>
+	<p>The term DevOps has been coined to highlight the often existing wall between developers (Dev) and operations (Ops). 
+	But the DevOps wall is often not the only wall. Avrian Mordo is talking about all of the walls and <a href="docs\TheRoadToContinuousDelivery-Wix.pdf">
+	Dev Centric Culture in his great article</a> about Continuous Delivery.</p>
+	<img src="images/TugOfWar-DevOps.png" alt="TugOfWar-DevOps" height="500px" style="display: block; margin-left: auto; margin-right: auto" title="Tug of war, DevOps">
+	<!--<div class="row">
+		<div class="col-md-6">
+			<a href="http://www.devops.com"><img src="images/DevOps1.png" alt="" title="Ops Problem" class="img-responsive"></a>
+		</div>
+
+		<div class="col-md-6">
+			<a href="http://www.devops.com"><img src="images/DevOps2.png" alt="" title="Ops Problem" class="img-responsive"></a>
+		</div>
+	</div>
+	<p class="text-right"><em>Images from <a href="http://www.devops.com">devops.com</a></em></p>-->
+	
+	<hr />
+	
+	<h2>Technical patterns</h2>
+	<h3>Test Driven Development (TDD)</h3>
+	<div class="row">
+		<div class="col-md-7">
+			<p>The first thing engineers need to master in order to do CD is TDD. Many companies doing CD agree with that. 
+			Why? - Code that is going into the version control system (with Continuous Deployment) directly will be 
+			deployed to production. Therefore it must be tested as early as possible. With TDD you write the test 
+			before the code, running the tests locally and when they pass the test the (reviewed) code goes into the VCS.
+			<p>So, having good quality early is one big benefit. Fewer bugs. Automated tests that cheaply can be executed 
+			to constantly verify quality.</p>
+			<p>Another big advantage is the ease of maintaining the code. Engineers do not have to split into teams to handle 
+			<em>their code</em>. An engineer writes the code (with attached tests) that is <strong>easy to maintain</strong> 
+			both for herself and <strong>for anyone else</strong>.</p>
+			<p>A deeper explanation of <a href="http://en.wikipedia.org/wiki/Test-driven_development">TDD can be found at Wikipedia</a>. 
+			<strong>Note: </strong> Although it is good to understand the principles of TDD you must practice it to fully understand its strengths.
+			Developers being used to doing TDD usually never want to go back to not doing it.</p>
+		</div>
+		<div class="col-md-5">
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h3 class="panel-title">Testing is not a phase!</h3>
+				</div>
+				<div class="panel-body">
+					It is crucial to not have any test phase. <a href="http://www.stephen-smith.co.uk/organisation-antipattern-release-testing/">
+					Bad behaviour arises when you abstract people away from the consequences of their actions.</a>
+					When a development team has authority for changes and a testing team has responsibility for quality, there will be an inescapable 
+					increase in defects and feedback loops that will inflate lead times.
+				</div>
+			</div>
+			<div class="panel panel-info">
+				<div class="panel-heading">
+					<h3 class="panel-title">Said about TDD</h3>
+				</div>
+				<div class="panel-body">
+					Writing the test first changes the mindset from designing to be consumed, 
+					to <strong>consumed to be designed</strong>.
+				</div>
+			<!--<div class="panel-footer">Panel footer</div>-->
+			</div>
+		</div>
+	</div>
+
+	<div class="panel panel-warning">
+		<div class="panel-heading">
+			<h3 class="panel-title">Warning - Avoid the <em>Dirty Hybrid</em> tests</h3>
+		</div>
+		<div class="panel-body">
+			There is unfortunately a very common problem in that developers write low quality tests. Those tests will 
+			end up being a burden rather than providing value.
+			<a href="http://blog.stevensanderson.com/2009/08/24/writing-great-unit-tests-best-and-worst-practises/">
+			This blog post</a> from 
+			Steven Sanderson discusses good vs. bad unit tests. <strong>Avoid the <em>Dirty Hybrids</em>!</strong>
+		</div>
+	</div>
+		
+	<h3>Deployment Pipeline</h3>
+	<div class="row">
+		<div class="col-md-6">
+			<p>The Deployment Pipeline (DP) is a way to move all of the manual steps in the build, test and deploy process in 
+			to an automated <em>assembly line</em>. Previously teams who were getting close to a release had a manual regression-phase 
+			for days or weeks. After that it was past another week or two before it was dedicated and ready for planning and exercising for the 
+			production release.</p>
+			<p>With the DP all of these manual steps are converted into various kinds of coded tests and installation scripts. All manual steps are 
+			checked in to VCS and can automatically be executed several times a day. This is usually done after every code change.</p>
+			<p>The DP not only removes the need for boring manual tests and release plan meetings. It also makes the whole delivery process much safer.
+			A DP is of course a must in order to do Continuous Delivery. Requiring manual installations several times a day is not an option.</p>
+			<p>The video clip (only 2 min) is a great illustration of the Deployment Pipeline.</p>
+		</div>
+		<div class="col-md-6">				
+			<div class="video-container">
+				<iframe width="560" height="315" src="http://www.youtube.com/embed/SIaVsG7m8n4" frameborder="0" allowfullscreen></iframe>
+			</div>
+		</div>
+	</div>
+	
+	<div class="row">
+		<div class="col-md-6">
+			<h3>Continuous Integration</h3>
+			<p>Continuous Integration (CI) is mainly about improving the ability for engineers to collaborate in the same codebase.</p>
+			<p>
+				The Key practices are
+				<ul>
+					<li>Maintain a Single Source Repository</li>
+					<li>Automate the Build</li>
+					<li>Make Your Build Self-Testing</li>
+					<li>Everyone Commits To the Mainline Every Day</li>
+					<li>Every Commit Should Build the Mainline on an Integration Machine</li>
+					<li>Keep the Build Fast</li>
+					<li>Test in a Clone of the Production Environment</li>
+					<li>Make it Easy for Anyone to Get the Latest Executable</li>
+					<li>Everyone can see what's happening</li>
+					<li>Automate Deployment</li>
+				</ul>
+			</p>
+			<p>For a more detailed explanation of CI please read <a href="http://www.martinfowler.com/articles/continuousIntegration.html">
+			Martin Fowlers article about CI</a>. It is really good so I won't replicate it all here.</p>				
+		</div>
+		
+		<div class="col-md-6">
+			<h3>Configuration Management</h3>
+			<p>
+			Configuration Management (CM) is in short to version everything. All of the stuff that is software should be 
+			stored in a single version control. Software including for example:</p>
+			<ul>
+				<li>Application code</li>
+				<li>Automated tests</li>
+				<li>Database scripts</li>
+				<li>Deployment scripts</li>
+				<li>Operating system</li>
+				<li>Firewall configurations</li>
+				<li><em>...and more</em>
+			</ul>
+			<p>If your server is burned down you should be able to get a new installation up and running by:</p>
+			<ol>
+				<li>Physically installing it into the rack</li>
+				<li>Plug in the power</li>
+				<li>Plug in the network cable</li>
+				<li>Push the hardware <strong>On</strong> button</li>
+				<li>Push the software <strong>Deploy</strong> button</li>
+			</ol>
+			<p>Steps 1 to 4 is often completed in an hour or two. But if the last step takes days or weeks it is caused by bad CM.</p>
+		</div>			
+	</div>
+	<div class="col-md-12">
+		<div class="alert alert-info">  				
+			<strong>Note: </strong> Be sure your development team has a good knowledge about <strong>CI</strong> and <strong>CM</strong> before 
+			starting to deploy to production every single day.
+		</div>
+	</div>		
+
+	<h3>Feature Toggles</h3>
+	<div class="row">
+		<div class="col-md-6">
+			<p>When working with Continuous Integration you are committing to the main line every single day. That might not seem to be a 
+			good idea if the new feature might need weeks or months to be completed. In these cases Feature Toggle (FT) or Branch By Abstraction (BBA) 
+			could be used.</p>
+			<p>With FT or BBA you apply a condition into your code that initially hides the ongoing work of the new feature. This condition could be as 
+			simple as an if/else statement. When the new feature is ready the statement is removed for all or at first for just a selection of all users.</p>
+			<div class="alert alert-info">Avoid branching in the version control system. <strong>Branch in Code!</strong></div>
+			<p>In the video clip Martin Fowler and Mike Manson are discussing why you should avoid
+			feature branches and instead focus on collaborating on the main line (trunk, master) in the VCS.</p>				
+		</div>
+		
+		<div class="col-md-6">
+			<div class="video-container">
+				<iframe width="420" height="315" src="http://www.youtube.com/embed/xzstASOvqNc" frameborder="0" allowfullscreen></iframe>
+			</div>
+		</div>			
+	</div>
+	
+	<div class="row">
+		<div class="col-md-6">
+			<h3>A/B tests</h3>
+			<p>A/B testing is a technique about gathering feedback from real users. It is commonly used in web development, online marketing, and other forms 
+			of advertising to do experiments with two variants (A and B). 
+			A is the current version in production. The B version includes a change that hopefully provides more value. So the A/B test is an experiment 
+			to verify a hypothesis. If B turns out to be the better it probably replaces the current A version.</p>
+			<p>One simple example of an A/B test is changing the color of the <em>buy-button</em> or moving it from the bottom to the top of the page. 
+			The hypothesis could have been: <em>I think more people will click on the buy-button if it is placed at the top right of the page</em>.</p>
+		</div>
+				
+		<div class="col-md-6">
+			<h3>Always On</h3>
+			<p>Most systems can afford a downtime for about 1 hour 4 times a year. So if you are deploying a new version to production every quarter most 
+			customers won't even notice it.</p>
+			<p>With Continuous Delivery and deployments as regular as daily, downtime is not an option. To run many parallel web servers with different 
+			versions of the software is usually no problem. But if the hosted application for example relies on permanent data in a relational database, 
+			the scaling possibilities are much harder. But they are definitely possible!</p>
+			<p>At first be sure you are versioning your database scripts. Preferably this is done with some versioning tool for databases. 
+			See for example <a href="http://www.liquibase.org/">Liquibase</a>, <a href="https://code.google.com/p/roundhouse/">RoundhousE</a> or 
+			<a href="http://flywaydb.org/getstarted/">Flyway</a>. 
+			Next be sure your incremental changes to the database schema are backward/forward compatible. That means you can run two different versions 
+			of the application against the same database schema.</p>
+		</div>			
+	</div>
+	
+	<hr />
+		
+	<div class="panel panel-info">
+		<div class="panel-heading">
+			<h3 class="panel-title">Get inspired</h3>
+		</div>
+		<div class="panel-body">
+			Watch presentations and read articles to get inspired: <a href="who-do-continuous-delivery.html">Who does CD?</a>
+		</div>
+	<!--<div class="panel-footer">Panel footer</div>-->
+	</div>
+
+	
+	<div id="footer">
+		<div class="container">
+			<p class="muted credit">
+				<address>
+					<strong>Anders Lundsg&aring;rd</strong>, <a href="mailto:contact@continuousdelivery.eu">contact@continuousdelivery.eu</a>
+				</address>
+			</p>
+		</div>
+	</div><!-- .footer -->
+
+ </div><!-- .container -->
+ 
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-35186448-2', { 'siteSpeedSampleRate': 100 });
+  ga('send', 'pageview');
+
+</script> 		 
+     
+</body>
+</html>
